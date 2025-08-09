@@ -3,7 +3,7 @@
   NPM_FLAGS = "--version" # prevent Netlify npm install
 [build]
   base = "00-set-interval-demo/01-iteration-two-react-ts/"
-  publish = "./dist"
+  publish = "00-set-interval-demo/01-iteration-two-react-ts/dist"
   command = "npx pnpm i --store=node_modules/.pnpm-store --frozen-lockfile"
   ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF ."
 [[redirects]]
