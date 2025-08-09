@@ -12,13 +12,13 @@ These demos show that after initial page load both counters run and while the we
 
 <img src="./docs/assets/img/00-set-interval-00-html.webp" width="50%" height="auto" alt="Screenshot of the HTML setInterval demo running in the browser" />
 
-[Check out the "Iteration one (HTML)" project](./00-set-interval-demo/00-iteration-one-html-js)
+Check out the ["Iteration one (HTML)" project](./00-set-interval-demo/00-iteration-one-html-js)
 
 ### Iteration two (React + TypeScript)
 
 <img src="./docs/assets/img/00-set-interval-01-react.webp" width="50%" height="auto" alt="Screenshot of the React setInterval demo running in the browser" />
 
-[Check out the "Iteration two (React)" project](./00-set-interval-demo/01-iteration-two-react-ts)
+Check out the ["Iteration two (React)" project](./00-set-interval-demo/01-iteration-two-react-ts) or the [live demo](https://set-interval-demo.netlify.app).
 
 ### Initial prompt
 

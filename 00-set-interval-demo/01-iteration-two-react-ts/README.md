@@ -2,6 +2,8 @@
 
 A React TypeScript application that demonstrates the performance differences between running `setInterval` on the main thread versus in a web worker.
 
+Check out the [live demo](https://set-interval-demo.netlify.app).
+
 ## 🚀 Features
 
 - **Real-time Counters**: Live demonstration of two counters running simultaneously
