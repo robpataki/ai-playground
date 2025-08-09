@@ -8,8 +8,8 @@ This app (built entirely with Cursor) showcases the main differences of using `s
 
 ### Links
 
-- [Iteration one (HTML)](./00-setInterval-demo/00-iteration-one-html-js)
-- [Iteration two (React)](./00-setInterval-demo/01-iteration-two-react-ts)
+- [Iteration one (HTML)](./00-set-interval-demo/00-iteration-one-html-js)
+- [Iteration two (React)](./00-set-interval-demo/01-iteration-two-react-ts)
 
 ### Initial prompt
 
