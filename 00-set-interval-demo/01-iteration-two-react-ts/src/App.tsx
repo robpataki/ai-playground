@@ -3,7 +3,7 @@ import CountersSection from "./components/CountersSection";
 import InfoSection from "./components/InfoSection";
 import ResourcesSection from "./components/ResourcesSection";
 import Footer from "./components/Footer";
-// import "./App.css";
+import "./App.css";
 
 function App() {
   return (

@@ -1,4 +1,3 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
 import CounterColumn from "./CounterColumn";
 
@@ -71,4 +70,4 @@ describe("CounterColumn", () => {
     const statusIndicator = container.querySelector(".status-indicator");
     expect(statusIndicator).toBeInTheDocument();
   });
-}); 
+});

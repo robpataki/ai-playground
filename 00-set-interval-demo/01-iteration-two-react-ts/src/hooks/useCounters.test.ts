@@ -59,19 +59,16 @@ describe("useCounters", () => {
 
   it("starts main thread counter on mount", () => {
     renderHook(() => useCounters());
-
     expect(mockSetInterval).toHaveBeenCalledWith(expect.any(Function), 1000);
   });
 
   it("creates web worker on mount", () => {
     renderHook(() => useCounters());
-
     expect(mockCreateWorker).toHaveBeenCalledTimes(1);
   });
 
   it("sends start command to worker", () => {
     renderHook(() => useCounters());
-
     expect(mockWorker.postMessage).toHaveBeenCalledWith({ command: "start" });
   });
 
@@ -151,7 +148,7 @@ describe("useCounters", () => {
   });
 
   it("pauses counters when page becomes hidden", () => {
-    const { result } = renderHook(() => useCounters());
+    renderHook(() => useCounters());
 
     // Simulate page visibility change to hidden
     act(() => {
@@ -166,7 +163,7 @@ describe("useCounters", () => {
   });
 
   it("resumes counters when page becomes visible", () => {
-    const { result } = renderHook(() => useCounters());
+    renderHook(() => useCounters());
 
     // Simulate page visibility change to visible
     act(() => {
@@ -179,4 +176,4 @@ describe("useCounters", () => {
 
     expect(mockSetInterval).toHaveBeenCalledTimes(2); // Initial + resume
   });
-}); 
+});

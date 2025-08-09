@@ -1,4 +1,3 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
 import CountersSection from "./CountersSection";
 import { useCounters } from "../hooks/useCounters";
@@ -80,4 +79,4 @@ describe("CountersSection", () => {
 
     expect(mockUseCounters).toHaveBeenCalledTimes(1);
   });
-}); 
+});

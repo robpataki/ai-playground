@@ -58,7 +58,7 @@ describe("workerUtils", () => {
     });
 
     it("revokes blob URL when worker errors", () => {
-      const worker = createWorker();
+      createWorker();
 
       // Get the error event listener
       const errorListener = mockWorker.addEventListener.mock.calls.find(
@@ -73,9 +73,8 @@ describe("workerUtils", () => {
     });
 
     it("handles Worker constructor errors gracefully", () => {
-      const mockError = new Error("Worker creation failed");
       (global.Worker as jest.Mock).mockImplementation(() => {
-        throw mockError;
+        throw new Error("Worker creation failed");
       });
 
       expect(() => createWorker()).toThrow("Worker creation failed");
@@ -113,4 +112,4 @@ describe("workerUtils", () => {
       expect(() => terminateWorker(undefined as any)).not.toThrow();
     });
   });
-}); 
+});

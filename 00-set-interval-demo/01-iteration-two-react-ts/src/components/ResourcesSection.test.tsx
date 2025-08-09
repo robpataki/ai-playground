@@ -1,4 +1,3 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
 import ResourcesSection from "./ResourcesSection";
 
@@ -124,4 +123,4 @@ describe("ResourcesSection", () => {
     const resourceCards = container.querySelectorAll(".resource-card");
     expect(resourceCards).toHaveLength(4);
   });
-}); 
+});
