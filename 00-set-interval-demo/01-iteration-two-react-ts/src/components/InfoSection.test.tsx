@@ -1,56 +1,50 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
 import InfoSection from "./InfoSection";
 
 describe("InfoSection", () => {
-  it("renders the section heading", () => {
+  it("renders", () => {
     render(<InfoSection />);
 
-    const heading = screen.getByRole("heading", { level: 2 });
-    expect(heading).toHaveTextContent(
-      "What's good to know about using setInterval"
-    );
+    expect(
+      screen.getByRole("heading", {
+        level: 2,
+        name: /what\'s good to know about using setInterval/i,
+      })
+    ).toBeInTheDocument();
+
+    expect(
+      screen.getByRole("region", {
+        name: /what\'s good to know about using setInterval/i,
+      })
+    ).toBeInTheDocument();
   });
 
   it("renders two comparison cards", () => {
     render(<InfoSection />);
-
-    const comparisonCards = screen.getAllByRole("heading", { level: 3 });
-    expect(comparisonCards).toHaveLength(2);
+    expect(screen.getAllByRole("heading", { level: 3 })).toHaveLength(2);
   });
 
   it("displays main thread comparison card", () => {
     render(<InfoSection />);
-
-    const mainThreadCard = screen.getByText("Main Thread");
-    expect(mainThreadCard).toBeInTheDocument();
+    expect(screen.getByText("Main Thread")).toBeInTheDocument();
   });
 
   it("displays web worker comparison card", () => {
     render(<InfoSection />);
-
-    const workerCard = screen.getByText("Web Worker");
-    expect(workerCard).toBeInTheDocument();
+    expect(screen.getByText("Web Worker")).toBeInTheDocument();
   });
 
   it("shows pros and cons for main thread", () => {
     render(<InfoSection />);
-
-    const mainThreadPros = screen.getByText("Pros");
-    expect(mainThreadPros).toBeInTheDocument();
-
-    const mainThreadCons = screen.getByText("Cons");
-    expect(mainThreadCons).toBeInTheDocument();
+    expect(screen.getAllByText("Pros")[0]).toBeInTheDocument();
+    expect(screen.getByText("Cons")).toBeInTheDocument();
   });
 
   it("shows pros and cons for web worker", () => {
     render(<InfoSection />);
 
-    const workerPros = screen.getAllByText("Pros")[1];
-    expect(workerPros).toBeInTheDocument();
-
-    const workerCons = screen.getAllByText("Cons")[1];
-    expect(workerCons).toBeInTheDocument();
+    expect(screen.getAllByText("Pros")[1]).toBeInTheDocument();
+    expect(screen.getAllByText("Cons")[1]).toBeInTheDocument();
   });
 
   it("lists main thread pros correctly", () => {
@@ -143,4 +137,4 @@ describe("InfoSection", () => {
     const workerCard = container.querySelector(".comparison-card.web-worker");
     expect(workerCard).toBeInTheDocument();
   });
-}); 
+});

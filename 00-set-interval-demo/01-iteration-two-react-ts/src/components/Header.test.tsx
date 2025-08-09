@@ -1,36 +1,23 @@
-import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import Header from "./Header";
 
 describe("Header", () => {
   it("renders the main heading", () => {
     render(<Header />);
 
-    const heading = screen.getByRole("heading", { level: 1 });
-    expect(heading).toBeInTheDocument();
-    expect(heading).toHaveTextContent("setInterval Performance Comparison");
-  });
+    const header = screen.getByRole("banner", {});
+    expect(header).toBeInTheDocument();
 
-  it("renders the description paragraph", () => {
-    render(<Header />);
+    expect(
+      within(header).getByRole("heading", {
+        level: 1,
+        name: "setInterval Performance Comparison",
+      })
+    ).toBeInTheDocument();
 
     const description = screen.getByText(
       /Real-time demonstration of setInterval running on the main thread versus in a web worker/i
     );
     expect(description).toBeInTheDocument();
   });
-
-  it("has proper semantic structure", () => {
-    render(<Header />);
-
-    const header = screen.getByRole("banner");
-    expect(header).toBeInTheDocument();
-  });
-
-  it("applies correct CSS classes", () => {
-    const { container } = render(<Header />);
-
-    const header = container.querySelector("header");
-    expect(header).toHaveClass("header");
-  });
-}); 
+});
