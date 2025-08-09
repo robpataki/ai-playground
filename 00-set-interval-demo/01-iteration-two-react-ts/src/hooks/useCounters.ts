@@ -10,7 +10,6 @@ export const useCounters = () => {
   const mainThreadIntervalRef = useRef<number | null>(null);
   const workerRef = useRef<Worker | null>(null);
 
-  // Start main thread counter
   const startMainThreadCounter = useCallback(() => {
     if (mainThreadIntervalRef.current) {
       clearInterval(mainThreadIntervalRef.current);
@@ -21,14 +20,12 @@ export const useCounters = () => {
     }, 1000);
   }, []);
 
-  // Start web worker
   const startWebWorker = useCallback(() => {
     try {
       console.log("Creating web worker...");
       const worker = createWorker();
       workerRef.current = worker;
 
-      // Listen for messages from worker
       worker.onmessage = function (e: MessageEvent) {
         console.log("Main thread received worker message:", e.data);
 
@@ -45,13 +42,11 @@ export const useCounters = () => {
         }
       };
 
-      // Handle worker errors
       worker.onerror = function (error: ErrorEvent) {
         console.error("Worker error:", error);
         setWorkerStatus(false);
       };
 
-      // Start the worker counter immediately
       console.log("Sending start command to worker");
       worker.postMessage({ command: "start" });
     } catch (error) {
@@ -60,7 +55,6 @@ export const useCounters = () => {
     }
   }, []);
 
-  // Cleanup function
   const cleanup = useCallback(() => {
     if (mainThreadIntervalRef.current) {
       clearInterval(mainThreadIntervalRef.current);
@@ -70,22 +64,15 @@ export const useCounters = () => {
     }
   }, []);
 
-  // Initialize counters
   useEffect(() => {
     console.log("Initializing counters...");
     startMainThreadCounter();
     startWebWorker();
 
-    // Cleanup on unmount
     return () => {
       cleanup();
     };
   }, [startMainThreadCounter, startWebWorker, cleanup]);
-
-  // Debug: Log state changes
-  useEffect(() => {
-    console.log("Worker counter state changed to:", workerCounter);
-  }, [workerCounter]);
 
   useEffect(() => {
     console.log("Worker status state changed to:", workerStatus);

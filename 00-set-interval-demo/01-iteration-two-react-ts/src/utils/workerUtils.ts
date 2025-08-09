@@ -1,7 +1,4 @@
-// Utility functions for web worker management
-
 export const createWorker = (): Worker => {
-  // Create a blob URL for the worker script
   const workerScript = `
     // Web Worker for setInterval demonstration
     let counter = 0;
@@ -88,7 +85,6 @@ export const createWorker = (): Worker => {
   try {
     const worker = new Worker(workerUrl);
 
-    // Clean up the blob URL when the worker is terminated
     worker.addEventListener("error", () => {
       URL.revokeObjectURL(workerUrl);
     });
