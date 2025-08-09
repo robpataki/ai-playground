@@ -6,10 +6,17 @@ This is a playground where I dump things I build with AI. This is all about lear
 
 This app (built entirely with Cursor) showcases the main differences of using `setInterval` on the main thread and a web worker. I've built 2 versions of this thing, the first iteration was a static HTML file with JavaScript, the second iteration is using React, TypeScript, pnpm and Jest with React Testing Library.
 
-### Links
+### Iteration one (HTML)
 
-- [Iteration one (HTML)](./00-set-interval-demo/00-iteration-one-html-js)
-- [Iteration two (React)](./00-set-interval-demo/01-iteration-two-react-ts)
+<img src="./docs/assets/img/00-set-interval-00-html.webp" width="50%" height="auto" alt="Screenshot of the HTML setInterval demo running in the browser" />
+
+[Check out the "Iteration one (HTML)" project](./00-set-interval-demo/00-iteration-one-html-js)
+
+### Iteration one (React + TypeScript)
+
+<img src="./docs/assets/img/00-set-interval-01-react.webp" width="50%" height="auto" alt="Screenshot of the React setInterval demo running in the browser" />
+
+[Check out the "Iteration two (React)" project](./00-set-interval-demo/01-iteration-two-react-ts)
 
 ### Initial prompt
 
