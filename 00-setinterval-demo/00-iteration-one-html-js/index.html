@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Compare setInterval performance on main thread vs web worker - see the differences in real-time">
+    <title>setInterval: Main Thread vs Web Worker Comparison</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>setInterval Performance Comparison</h1>
+        <p>Real-time demonstration of setInterval running on the main thread versus in a web worker</p>
+    </header>
+
+    <main>
+        <section class="counters-section" aria-labelledby="counters-heading">
+            <h2 id="counters-heading">Live Counters</h2>
+            <div class="counters-container">
+                <div class="counter-column">
+                    <h3>setInterval on the main thread</h3>
+                    <div class="counter-display" id="main-thread-counter" aria-live="polite" aria-label="Main thread counter">
+                        <span class="counter-value" id="main-thread-value">0</span>
+                        <span class="counter-unit">seconds</span>
+                    </div>
+                    <div class="status-indicator" id="main-thread-status">
+                        <span class="status-dot active"></span>
+                        <span class="status-text">Active</span>
+                    </div>
+                </div>
+
+                <div class="counter-column">
+                    <h3>setInterval in a web worker</h3>
+                    <div class="counter-display" id="worker-counter" aria-live="polite" aria-label="Web worker counter">
+                        <span class="counter-value" id="worker-value">0</span>
+                        <span class="counter-unit">seconds</span>
+                    </div>
+                    <div class="status-indicator" id="worker-status">
+                        <span class="status-dot active"></span>
+                        <span class="status-text">Active</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section" aria-labelledby="info-heading">
+            <h2 id="info-heading">What's good to know about using setInterval</h2>
+            
+            <div class="comparison-grid">
+                <div class="comparison-card main-thread">
+                    <h3>Main Thread</h3>
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>Pros</h4>
+                            <ul>
+                                <li>Direct access to DOM elements</li>
+                                <li>Simple to implement and debug</li>
+                                <li>No additional setup required</li>
+                                <li>Immediate access to page context</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>Cons</h4>
+                            <ul>
+                                <li>Blocks UI rendering when busy</li>
+                                <li>Can cause page to become unresponsive</li>
+                                <li>Affects user experience during heavy operations</li>
+                                <li>Timing can be delayed by other JavaScript execution</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comparison-card web-worker">
+                    <h3>Web Worker</h3>
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>Pros</h4>
+                            <ul>
+                                <li>Runs in background without blocking UI</li>
+                                <li>More accurate timing (less affected by main thread)</li>
+                                <li>Better performance for intensive tasks</li>
+                                <li>Doesn't interfere with user interactions</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>Cons</h4>
+                            <ul>
+                                <li>No direct DOM access</li>
+                                <li>Communication requires message passing</li>
+                                <li>More complex to implement</li>
+                                <li>Limited browser support in older browsers</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="resources-section" aria-labelledby="resources-heading">
+            <h2 id="resources-heading">Learn More</h2>
+            <div class="resources-grid">
+                <article class="resource-card">
+                    <h3>MDN Web Docs</h3>
+                    <p>Comprehensive documentation on setInterval and Web Workers</p>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/API/setInterval" target="_blank" rel="noopener noreferrer">
+                        setInterval Documentation
+                    </a>
+                </article>
+
+                <article class="resource-card">
+                    <h3>Web Workers Guide</h3>
+                    <p>Learn how to use Web Workers for background processing</p>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers" target="_blank" rel="noopener noreferrer">
+                        Using Web Workers
+                    </a>
+                </article>
+
+                <article class="resource-card">
+                    <h3>Performance Best Practices</h3>
+                    <p>Tips for optimizing JavaScript performance in web applications</p>
+                    <a href="https://web.dev/optimize-long-tasks/" target="_blank" rel="noopener noreferrer">
+                        Optimize Long Tasks
+                    </a>
+                </article>
+
+                <article class="resource-card">
+                    <h3>Real-world Examples</h3>
+                    <p>See more demos and practical implementations</p>
+                    <a href="https://github.com/mdn/dom-examples/tree/main/web-workers" target="_blank" rel="noopener noreferrer">
+                        MDN Web Worker Examples
+                    </a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 setInterval Comparison Demo. Built to demonstrate the differences between main thread and web worker execution.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
