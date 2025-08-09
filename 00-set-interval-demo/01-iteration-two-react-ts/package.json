@@ -18,7 +18,7 @@
     "web-workers",
     "performance"
   ],
-  "author": "",
+  "author": "Rob Pataki",
   "license": "ISC",
   "description": "React TypeScript demo comparing setInterval performance on main thread vs web worker",
   "dependencies": {
