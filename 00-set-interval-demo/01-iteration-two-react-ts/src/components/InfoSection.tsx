@@ -2,7 +2,11 @@ import React from "react";
 
 const InfoSection: React.FC = () => {
   return (
-    <section className="info-section" aria-labelledby="info-heading">
+    <section
+      data-testid="info-section"
+      className="info-section"
+      aria-labelledby="info-heading"
+    >
       <h2 id="info-heading">What's good to know about using setInterval</h2>
 
       <div className="comparison-grid">

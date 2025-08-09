@@ -52,7 +52,11 @@ const ResourcesSection: React.FC = () => {
   ];
 
   return (
-    <section className="resources-section" aria-labelledby="resources-heading">
+    <section
+      data-testid="resources-section"
+      className="resources-section"
+      aria-labelledby="resources-heading"
+    >
       <h2 id="resources-heading">Learn More</h2>
       <div className="resources-grid">
         {resources.map((resource, index) => (

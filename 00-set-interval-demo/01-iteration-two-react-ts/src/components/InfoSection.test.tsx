@@ -37,12 +37,11 @@ describe("InfoSection", () => {
   it("shows pros and cons for main thread", () => {
     render(<InfoSection />);
     expect(screen.getAllByText("Pros")[0]).toBeInTheDocument();
-    expect(screen.getByText("Cons")).toBeInTheDocument();
+    expect(screen.getAllByText("Cons")[0]).toBeInTheDocument();
   });
 
   it("shows pros and cons for web worker", () => {
     render(<InfoSection />);
-
     expect(screen.getAllByText("Pros")[1]).toBeInTheDocument();
     expect(screen.getAllByText("Cons")[1]).toBeInTheDocument();
   });

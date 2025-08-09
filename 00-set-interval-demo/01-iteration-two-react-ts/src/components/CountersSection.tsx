@@ -7,7 +7,11 @@ const CountersSection: React.FC = () => {
     useCounters();
 
   return (
-    <section className="counters-section" aria-labelledby="counters-heading">
+    <section
+      data-testid="counters-section"
+      className="counters-section"
+      aria-labelledby="counters-heading"
+    >
       <h2 id="counters-heading">Live Counters</h2>
       <div className="counters-container">
         <CounterColumn
